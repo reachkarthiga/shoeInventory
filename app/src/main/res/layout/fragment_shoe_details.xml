@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".shoeDetails.ShoeDetails">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.udacity.shoestore.shoeDetails.ShoeViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolBar"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:background="@color/colorPrimary"
+                android:gravity="center_vertical"
+                android:padding="@dimen/margin_6"
+                app:layout_constraintTop_toTopOf="parent"
+                app:title="Inventory Details"
+                app:titleTextColor="@color/lightBackground" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/box_shoe_name"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_16"
+                android:layout_marginTop="@dimen/margin_32"
+                android:layout_marginRight="@dimen/margin_16"
+                app:boxStrokeWidth="1dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/toolBar">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editText_shoe_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/shoe_name"
+                    android:maxLength="20"
+                    android:singleLine="true"
+                    android:text="@={viewModel.shoeDetailName}"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/colorPrimary" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/error_shoe_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_16"
+                android:layout_marginTop="@dimen/margin_8"
+                android:layout_marginEnd="@dimen/margin_16"
+                android:textColor="@color/colorAccent"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/box_shoe_name"
+                tools:text="Name Error" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/box_shoe_company"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_16"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="@dimen/margin_16"
+                app:boxStrokeWidth="1dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/error_shoe_name">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editText_company"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Company"
+                    android:maxLength="20"
+                    android:singleLine="true"
+                    android:text="@={viewModel.shoeDetailCompany}"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/colorPrimary" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/error_company"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_16"
+                android:layout_marginTop="@dimen/margin_8"
+                android:layout_marginEnd="@dimen/margin_16"
+                android:textColor="@color/colorAccent"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/box_shoe_company" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/box_description"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_16"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="@dimen/margin_16"
+                app:boxStrokeWidth="1dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/error_company">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editText_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Description"
+                    android:maxLength="20"
+                    android:singleLine="true"
+                    android:text="@={viewModel.shoeDetailDescription}"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/colorPrimary" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/error_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_16"
+                android:layout_marginTop="@dimen/margin_8"
+                android:layout_marginEnd="@dimen/margin_16"
+                android:textColor="@color/colorAccent"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/box_description" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/box_size"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_16"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="@dimen/margin_16"
+                app:boxStrokeWidth="1dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/error_description">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editText_size"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Shoe Size"
+                    android:inputType="numberDecimal"
+                    android:maxLength="3"
+                    android:singleLine="true"
+                    android:text="@={viewModel.shoeSize}"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/colorPrimary" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/error_size"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_16"
+                android:layout_marginTop="@dimen/margin_8"
+                android:layout_marginEnd="@dimen/margin_16"
+                android:textColor="@color/colorAccent"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/box_size" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/box_image"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_16"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="@dimen/margin_16"
+                app:boxStrokeWidth="1dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/error_size">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editText_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:cursorVisible="true"
+                    android:hint="Image URL"
+                    android:singleLine="true"
+                    android:text="@={viewModel.image}"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/colorPrimary" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/error_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_16"
+                android:layout_marginTop="@dimen/margin_8"
+                android:layout_marginEnd="@dimen/margin_16"
+                android:textColor="@color/colorAccent"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toTopOf="@+id/img1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/box_image" />
+
+
+            <ImageView
+                android:id="@+id/img1"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/ic_baseline_image_24"
+                app:layout_constraintBottom_toTopOf="@+id/save"
+                app:layout_constraintEnd_toStartOf="@+id/add_new_image"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/error_image"
+                app:layout_constraintVertical_chainStyle="spread_inside" />
+
+            <ImageButton
+                android:id="@+id/add_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_16"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/image_button_background"
+                android:onClick="@{() -> viewModel.onDownLoadImageClicked()}"
+                android:padding="16dp"
+                android:src="@drawable/ic_baseline_download_24"
+                app:layout_constraintBottom_toBottomOf="@+id/img1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/add_new_image"
+                app:layout_constraintTop_toTopOf="@+id/img1" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/save"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_16"
+                android:layout_marginBottom="144dp"
+                android:background="@drawable/rectangle_primary_color"
+                android:onClick="@{() -> viewModel.saveDetails()}"
+                android:padding="16dp"
+                android:text="Save"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/img1"
+                tools:layout_editor_absoluteX="16dp" />
+
+            <ImageButton
+                android:id="@+id/add_new_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_16"
+                android:background="@drawable/image_button_background"
+                android:onClick="@{() -> viewModel.openImageField()}"
+                android:padding="16dp"
+                android:src="@drawable/ic_baseline_refresh_24"
+                app:layout_constraintBottom_toBottomOf="@+id/img1"
+                app:layout_constraintEnd_toStartOf="@+id/add_image"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/img1"
+                app:layout_constraintTop_toTopOf="@+id/img1" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>
